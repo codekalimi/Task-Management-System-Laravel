@@ -27,10 +27,15 @@
             <a href="\">Home</a>
             <a href="\about">About</a>
             <a href="\todos">Todos</a>
-            <a href="">Completed</a>
+            <a href="\completed">Completed</a>
             <a href="\new-todo">Create New Todo</a>
             <a href="">Source Code</a>
         </div>
+        @if (session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+        @endif
       @yield('content')
         </div>
 

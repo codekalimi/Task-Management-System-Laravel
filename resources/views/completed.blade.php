@@ -6,7 +6,7 @@
 
 @section('content')
 
-            <h1 class="text-center py-5">TODOS</h1>
+            <h1 class="text-center py-5">COMPLETED TODOS</h1>
             <div class="row justify-content-center">
                 <div class="col-md-8">
                         <div class="card border-primary">
@@ -16,15 +16,12 @@
                                 <div class="card-body">
                                      <ul class="list-group">
                                              @foreach ($todos as $todo)
-                                             @if (!$todo->completed)
+                                             @if ($todo->completed)
                                                 <li class="list-group-item list-group-item-action">
                                                     {{ $todo->name }}
-
-                                                    <a href="/todos/{{$todo->id}}/complete" class="btn btn-warning btn-sm ml-2 float-right">Complete</a>
-
                                                 <a href="/todos/{{$todo->id}}" class="btn btn-primary btn-sm float-right">View</a>
                                                 </li>
-                                             @endif
+                                            @endif
                                              @endforeach
                                          </ul>
                                 </div>
